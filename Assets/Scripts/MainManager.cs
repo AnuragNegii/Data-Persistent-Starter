@@ -28,6 +28,9 @@ public class MainManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        HighScoreText.text = "BestScore :" + GameManager.Instance.NewHighScorePlayerName + " : " + GameManager.Instance.NewHighScore;
+
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
@@ -66,6 +69,8 @@ public class MainManager : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
+
+        CheckHighScore();
     }
 
     void AddPoint(int point)
@@ -78,5 +83,16 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+    }
+
+    private void CheckHighScore()
+    {
+      GameManager.Instance.score  = m_Points;
+        if (GameManager.Instance.NewHighScore < GameManager.Instance.score)
+        {
+            GameManager.Instance.NewHighScore = GameManager.Instance.score;
+            GameManager.Instance.NewHighScorePlayerName = GameManager.Instance.CurrentPlayerName;
+            HighScoreText.text = "BestScore : " + GameManager.Instance.NewHighScorePlayerName + " : " + GameManager.Instance.NewHighScore;
+        }
     }
 }

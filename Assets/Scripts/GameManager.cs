@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public string CurrentPlayerName;
     public  int score;
 
+    public int NewHighScore = 0;
+    public string NewHighScorePlayerName = "";
+
     void Awake()
     {
         if (Instance != null)
