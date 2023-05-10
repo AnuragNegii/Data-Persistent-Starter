@@ -9,8 +9,6 @@ public class UIHandler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nameText;
 
-    public string PlayerName;
-
     void Start()
     {
         
@@ -36,8 +34,8 @@ public class UIHandler : MonoBehaviour
 #endif
     }
 
-    public void GetName(string s)
+    public void GetName()
     {
-        PlayerName = s;
+        GameManager.Instance.CurrentPlayerName = nameText.text;
     }
 }

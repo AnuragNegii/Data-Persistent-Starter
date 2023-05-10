@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        CurrentPlayerName = GameObject.Find("Canvas").GetComponent<UIHandler>().PlayerName;
-
         if (Instance != null)
         {
             Destroy(gameObject);
