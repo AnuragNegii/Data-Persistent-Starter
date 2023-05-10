@@ -8,10 +8,10 @@ using UnityEditor;
 public class UIHandler : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI nameText;
-
+    [SerializeField] private TextMeshProUGUI highScoreText;
     void Start()
     {
-        
+        highScoreText.text = "High Score : " + GameManager.Instance.NewHighScorePlayerName + " : " + GameManager.Instance.NewHighScore;
     }
 
     // Update is called once per frame
